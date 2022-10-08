@@ -1,6 +1,14 @@
+terraform {
+  backend "s3" {
+    bucket = "anderson-ferreira"
+    key    = "terraform-state"
+    region = "us-east-1"
+  }
+}
+
 provider "aws" {
   region  = "us-east-1"
-# profile = ""
+  profile = "anderson"
 }
 
 variable "schedule_expression_start" {

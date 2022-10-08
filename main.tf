@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "anderson-ferreira"
-    key    = "terraform-state"
+    key    = "terraform-state/stop-start-rds/terraform.tfstate"
     region = "us-east-1"
   }
 }

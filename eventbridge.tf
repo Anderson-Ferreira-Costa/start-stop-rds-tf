@@ -2,7 +2,7 @@
 resource "aws_cloudwatch_event_rule" "start" {
   name                = "start-rds"
   description         = "Inicia o RDS de segunda a sexta"
-  schedule_expression = "cron(00 9 ? * mon-fri *)"
+  schedule_expression = var.schedule_expression_start
 }
 
 resource "aws_cloudwatch_event_target" "start" {
@@ -22,7 +22,7 @@ resource "aws_lambda_permission" "start" {
 resource "aws_cloudwatch_event_rule" "stop" {
   name                = "stop-rds"
   description         = "Pausa o RDS de segunda a sexta"
-  schedule_expression = "cron(00 22 ? * mon-fri *)"
+  schedule_expression = var.schedule_expression_stop
 }
 
 resource "aws_cloudwatch_event_target" "stop" {

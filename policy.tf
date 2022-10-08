@@ -33,7 +33,10 @@ resource "aws_iam_policy" "policy" {
           "rds:DescribeDBInstances",
           "rds:StopDBInstance",
           "rds:DescribeDBClusters",
-          "rds:StartDBInstance"
+          "rds:StartDBInstance",
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
         ]
         Effect   = "Allow"
         Resource = "*"
@@ -42,18 +45,9 @@ resource "aws_iam_policy" "policy" {
   })
 }
 
-data "aws_iam_policy" "basic" {
-  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}
-
 resource "aws_iam_role_policy_attachment" "attach" {
   role       = aws_iam_role.role_for_lambda.name
   policy_arn = aws_iam_policy.policy.arn
-}
-
-resource "aws_iam_role_policy_attachment" "basic" {
-  role       = aws_iam_role.role_for_lambda.name
-  policy_arn = data.aws_iam_policy.basic.arn
 }
 
 

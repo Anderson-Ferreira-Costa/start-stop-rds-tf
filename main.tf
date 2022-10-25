@@ -3,6 +3,7 @@ terraform {
     bucket = "anderson-ferreira"
     key    = "terraform-state/stop-start-rds/terraform.tfstate"
     region = "us-east-1"
+    profile = "anderson"
   }
 }
 

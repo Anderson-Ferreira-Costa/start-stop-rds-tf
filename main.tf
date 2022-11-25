@@ -10,5 +10,6 @@ provider "aws" {
   region  = var.region
 }
 
+# Adicionar tag no RDS
 # autostart = yes
 # autostop  = yes

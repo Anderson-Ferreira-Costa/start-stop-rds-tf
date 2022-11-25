@@ -9,3 +9,6 @@
 provider "aws" {
   region  = var.region
 }
+
+# autostart = yes
+# autostop  = yes

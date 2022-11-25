@@ -1,8 +1,8 @@
 #start-rds
 data "archive_file" "start" {
   type        = "zip"
-  source_file = "start-rds.py"
-  output_path = "start-rds.zip"
+  source_file = "${var.start}.py"
+  output_path = "${var.start}.zip"
 }
 resource "aws_lambda_function" "start" {
 
@@ -12,15 +12,15 @@ resource "aws_lambda_function" "start" {
 
   role    = aws_iam_role.role_for_lambda.arn
   runtime = "python3.7"
-  handler = "start-rds.lambda_handler"
+  handler = "${var.start}.lambda_handler"
   timeout = 10
 }
 
 #stop-rds
 data "archive_file" "stop" {
   type        = "zip"
-  source_file = "stop-rds.py"
-  output_path = "stop-rds.zip"
+  source_file = "${var.stop}.py"
+  output_path = "${var.stop}.zip"
 }
 resource "aws_lambda_function" "stop" {
 
@@ -30,6 +30,6 @@ resource "aws_lambda_function" "stop" {
 
   role    = aws_iam_role.role_for_lambda.arn
   runtime = "python3.7"
-  handler = "stop-rds.lambda_handler"
+  handler = "${var.stop}.lambda_handler"
   timeout = 10
 }

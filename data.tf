@@ -1,11 +1,11 @@
 data "archive_file" "start" {
   type        = "zip"
-  source_file = "${var.start}.py"
-  output_path = "${var.start}.zip"
+  source_file = "${local.start}.py"
+  output_path = "${local.start}.zip"
 }
 
 data "archive_file" "stop" {
   type        = "zip"
-  source_file = "${var.stop}.py"
-  output_path = "${var.stop}.zip"
+  source_file = "${local.stop}.py"
+  output_path = "${local.stop}.zip"
 }

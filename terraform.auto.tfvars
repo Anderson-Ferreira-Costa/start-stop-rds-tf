@@ -1,7 +1,7 @@
-region = "ca-central-1"
+region = "us-east-1"
 
-schedule_expression_start = "cron(00 9 ? * mon-fri *)"
-schedule_expression_stop  = "cron(00 1 ? * mon-sat *)"
+schedule_expression_stop = "cron(18 19 ? * mon-fri *)"
+schedule_expression_start = "cron(35 19 ? * mon-fri *)"
 
-start = "scripts/start-cluster"
-stop  = "scripts/stop-cluster"
+start = "start-cluster"
+stop  = "stop-cluster"

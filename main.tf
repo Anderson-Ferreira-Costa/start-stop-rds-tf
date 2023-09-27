@@ -65,7 +65,3 @@ resource "aws_cloudwatch_event_target" "stop" {
   arn  = aws_lambda_function.stop.arn
   rule = aws_cloudwatch_event_rule.stop.name
 }
-
-# Adicionar tag no RDS
-# autostart = yes
-# autostop  = yes
